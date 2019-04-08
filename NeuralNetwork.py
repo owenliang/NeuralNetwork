@@ -47,6 +47,8 @@ class NeuralNetwork:
         # 按权重矩阵传播误差到隐藏层
         hidden_errors = numpy.dot(self.who.T, output_errors)
 
+        # 阶段3：梯度下降调整权重
+
         # 更新隐藏层->输出层的权重矩阵
         self.who += numpy.dot(self.lr * output_errors * final_outputs * (1 - final_outputs), hidden_outputs.T)
         # 更新输入层->隐藏层的权重矩阵

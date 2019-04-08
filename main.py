@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from NeuralNetwork import NeuralNetwork
-import matplotlib.pyplot
 import numpy
 
 # 模型参数
 input_nodes = 784   # 输入的图像是28*28像素的特征
 hidden_nodes = 200  # 越多的隐藏层节点, 意味着更多的权重需要学习,模型精度更好,运算更慢
 output_nodes = 10   # 输出有0-9种数字，信号最大的就是预测的分类
-learning_rate = 0.3
+learning_rate = 0.1 # 更多的重复训练则使用更小的学习率（也就是下降的更慢）
 
 # 重复训练的次数
 epochs = 2

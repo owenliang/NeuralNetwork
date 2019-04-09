@@ -2,6 +2,8 @@
 import numpy
 import scipy.special
 
+# 神经网络实现
+
 # 输入层 + 隐藏层 + 输出层
 class NeuralNetwork:
     def __init__(self, inputnodes, hiddennodes, outputnodes, learningrate):
@@ -18,8 +20,10 @@ class NeuralNetwork:
         # 隐藏层->输出层
         self.who = numpy.random.normal(0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
 
+    @staticmethod
+    def activation_function(x):
         # 定义激活函数为sigmoid
-        self.activation_function = lambda x: scipy.special.expit(x)
+        return scipy.special.expit(x)
 
     def train(self, inputs_list, targets_list):
         # 输入列表转换成二维矩阵（就是平面上的矩阵）, 然后转置成单列

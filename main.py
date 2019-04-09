@@ -46,19 +46,14 @@ test_data_file.close()
 scorecard = []
 for record in test_data_list:
     all_values = record.split(',')
-
     # 正确的数字
     correct_label = int(all_values[0])
-
     # 输入预处理
     inputs = (numpy.asfarray(all_values[1:]) / 255 * 0.99) + 0.01
-
     # 模型预测
     outputs = n.query(inputs)
-
     # 得到最大输出节点的下标
     label = numpy.argmax(outputs)
-
     # 统计得分
     if label == correct_label:
         scorecard.append(1)

@@ -6,6 +6,7 @@ from ModelServer import *
 model_server = ModelServer('./n.model')
 
 # 对手写的字识别率很低
-with open('./handwriting/3.png', 'rb') as fp:
-    num = model_server.predict(fp.read())
-    print('预测为:', num)
+for i in range(0, 10):
+    with open('./handwriting/{}.png'.format(i), 'rb') as fp:
+        num = model_server.predict(fp.read())
+        print('数字:{}, 预测为:{}'.format(i, num))
